@@ -48,7 +48,7 @@ const styles = {
     input: {
       flex: 1,
       height: 20,
-      marginLeft: 8, // Adjust the margin to separate the icon and text
+      marginLeft: 8,  
       fontFamily:""
     
     },
