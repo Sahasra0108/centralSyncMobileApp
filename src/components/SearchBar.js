@@ -16,6 +16,7 @@ const SearchBar = (props)=>{
                 value={props.searchText}
                 onChangeText={(text)=>props.setSearchText(text)}
                 onSubmitEditing={props.onSubmit}
+                selectionColor="black"
              
             />
         </View>

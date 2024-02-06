@@ -36,10 +36,12 @@ function MyBottomTabs() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel:"Home",
           tabBarIcon: ({ color }) => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Icon name="home" color={'black'} size={26} style={{ marginRight: 80 }}/>
+            
+             
             </View>
           ),
         }}
