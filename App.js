@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View } from 'react-native';
 import MyBottomTabs from './src/components/BottomNav';
 import TopNav from './src/components/TopNav';
-import ItemList from './src/screens/InventoryItem/ItemList';
 
 
 
@@ -13,7 +12,6 @@ export default function App() {
     <SafeAreaProvider>
     <NavigationContainer>
       <TopNav/>
-      <ItemList/>
       <MyBottomTabs />
     </NavigationContainer>
     </SafeAreaProvider>
