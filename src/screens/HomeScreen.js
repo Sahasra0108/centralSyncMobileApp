@@ -1,12 +1,22 @@
-import { SafeAreaProvider } from 'react-native-safe-area-context'; 
-
-import React from 'react';
-import { View, Text } from 'react-native';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import TopNav from "../components/TopNav";
+import AdminDashboard from "./Dashboard/AdminDashboard";
+import React from "react";
+import { View, Text,StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaProvider>
+        <AdminDashboard />
+    </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
+});

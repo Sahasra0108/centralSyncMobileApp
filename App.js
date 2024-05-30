@@ -4,6 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View ,StyleSheet} from 'react-native';
 import MyBottomTabs from './src/components/BottomNav';
 import TopNav from './src/components/TopNav';
+import AdminDashboard from './src/screens/Dashboard/AdminDashboard';
+
+ 
+
  
 
 
@@ -13,7 +17,9 @@ export default function App() {
     <SafeAreaProvider>
     <NavigationContainer>
       <TopNav/>
+    
       <MyBottomTabs />
+    
     </NavigationContainer>
     </SafeAreaProvider>
   );
