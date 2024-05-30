@@ -60,4 +60,4 @@ function MyBottomTabs() {
   );
 }
 
-export default MyBottomTabs
+export default MyBottomTabs;
