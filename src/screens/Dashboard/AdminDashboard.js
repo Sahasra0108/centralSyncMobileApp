@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, SafeAreaView, Text, Image } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text, Image,ScrollView } from "react-native";
 import Button from "../../components/Button";
 import ItemIcon from "../../../assets/items.png";
 import UsersIcon from "../../../assets/users.png";
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
   const today=new Date().toISOString().split("T")[0];
   return (
     <SafeAreaView style={style.safeArea}>
-    
+    <ScrollView>
       <View>
         <Text>{today}</Text>
       </View>
@@ -100,6 +100,7 @@ const AdminDashboard = () => {
         <Button name="Stock In" onPress={() => {}} />
         <Button name="Stock Out" onPress={() => {}} />
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
