@@ -3,11 +3,12 @@ import TopNav from "../components/TopNav";
 import AdminDashboard from "./Dashboard/AdminDashboard";
 import React from "react";
 import { View, Text,StyleSheet } from "react-native";
-
+import UsageAnalysis from "./Reports/Item Usage Report/ItemUsage";
 export default function HomeScreen() {
   return (
     <SafeAreaProvider>
-        <AdminDashboard />
+        {/* <AdminDashboard /> */}
+<UsageAnalysis/>
     </SafeAreaProvider>
   );
 }

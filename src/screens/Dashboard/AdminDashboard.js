@@ -115,9 +115,10 @@ const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between", // Space between text and icon
     alignItems: "center",
-    padding:10,
+    padding:8,
     backgroundColor: "#3C8CEA",
     borderRadius: 15,
+    width:380
     
   },
   menuContainer: {
@@ -131,7 +132,7 @@ const style = StyleSheet.create({
   },
   textContainer: {
     alignItems: "center",
-    marginVertical: 10, // Add margin for horizontal spacing
+    marginVertical: 8, // Add margin for horizontal spacing
    
   },
   image: {
