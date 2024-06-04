@@ -1,13 +1,14 @@
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/Profile';
+import * as React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Image, StyleSheet, Text } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import HomeScreen from "../screens/HomeScreen";
+import ProfileScreen from "../screens/Profile";
+import ItemList from "../screens/InventoryItem/ItemList";
 
 const BottomTab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const screenOptions = {
   tabBarShowLabel: false,
@@ -29,7 +30,7 @@ function ProfileTabIcon() {
   return (
     <View style={styles.profileContainer}>
       <Image
-        source={require('../../assets/man.jpeg')}
+        source={require("../../assets/man.jpeg")}
         style={styles.profileImage}
       />
       <View style={styles.profileText}>
@@ -40,16 +41,29 @@ function ProfileTabIcon() {
   );
 }
 
+function AdminStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="ItemList"
+        component={ItemList}
+        options={{ title: "All Items" }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function BottomNav() {
   return (
-    <BottomTab.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+    <BottomTab.Navigator screenOptions={screenOptions}>
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={AdminStack}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
-            <Icon name="home" color={'black'} size={26} />
+            <Icon name="home" color={"black"} size={26} />
           ),
         }}
       />
@@ -57,7 +71,7 @@ function BottomNav() {
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: "",
           tabBarIcon: () => <ProfileTabIcon />,
         }}
       />
@@ -89,5 +103,3 @@ const styles = StyleSheet.create({
     color: "black",
   },
 });
-
- 

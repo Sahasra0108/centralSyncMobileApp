@@ -4,10 +4,10 @@ import AdminDashboard from "./Dashboard/AdminDashboard";
 import React from "react";
 import { View, Text,StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaProvider>
-        <AdminDashboard />
+        <AdminDashboard navigation={navigation}/>
     </SafeAreaProvider>
   );
 }
