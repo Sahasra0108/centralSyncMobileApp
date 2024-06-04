@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, SafeAreaView, Text, Image } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text, Image,ScrollView } from "react-native";
 import Button from "../../components/Button";
 import ItemIcon from "../../../assets/items.png";
 import UsersIcon from "../../../assets/users.png";
 import StockInIcon from "../../../assets/stock-in.png";
 import StockOutIcon from "../../../assets/stock-out.png";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const AdminDashboard = () => {
   const [totItems, setTotItems] = useState([]);
   const [totUsers, setTotUsers] = useState([]);
-
-
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,9 +30,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://10.0.2.2:8080/user/count"
-        );
+        const response = await axios.get("http://10.0.2.2:8080/user/count");
         setTotUsers(response.data);
       } catch (error) {
         console.log(error);
@@ -41,20 +39,19 @@ const AdminDashboard = () => {
     fetchData();
   }, []);
 
-  const today=new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <SafeAreaView style={style.safeArea}>
-    
+     <ScrollView>
       <View>
         <Text>{today}</Text>
       </View>
       <View style={style.iconContainer}>
-    
         <View style={style.textContainer}>
           <Image source={ItemIcon} style={style.image} />
           <Text style={style.text}>{totItems}</Text>
           <Text style={style.text}>All Items</Text>
-
         </View>
         <View style={style.textContainer}>
           <Image source={UsersIcon} style={style.image} />
@@ -73,7 +70,6 @@ const AdminDashboard = () => {
         </View>
       </View>
 
-      {/* menu list */}
       <View style={style.menuContainer}>
         <Text style={style.text}>Requests & Reservations</Text>
         <Button name="Requests" onPress={() => {}} />
@@ -95,11 +91,12 @@ const AdminDashboard = () => {
       </View>
       <View style={style.menuContainer}>
         <Text style={style.text}>Inventory Item</Text>
-        <Button name="Item" onPress={() => {}} />
+        <Button name="Item" onPress={() => navigation.navigate("ItemList")} />
         <Button name="Adjustment" onPress={() => {}} />
         <Button name="Stock In" onPress={() => {}} />
         <Button name="Stock Out" onPress={() => {}} />
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -112,12 +109,11 @@ const style = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: "row",
-    justifyContent: "space-between", // Space between text and icon
+    justifyContent: "space-between",
     alignItems: "center",
-    padding:10,
+    padding: 10,
     backgroundColor: "#3C8CEA",
     borderRadius: 15,
-    
   },
   menuContainer: {
     alignItems: "center",
@@ -130,18 +126,16 @@ const style = StyleSheet.create({
   },
   textContainer: {
     alignItems: "center",
-    marginVertical: 10, // Add margin for horizontal spacing
-   
+    marginVertical: 10,
   },
   image: {
     width: 50,
     height: 50,
-    //paddingHorizontal: 20,
     marginHorizontal: 22,
   },
-  text:{
-    fontWeight:"bold"
-  }
+  text: {
+    fontWeight: "bold",
+  },
 });
 
 export default AdminDashboard;
