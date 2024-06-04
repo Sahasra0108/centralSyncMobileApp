@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
+import { Text,Dimensions } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import axios from "axios";
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June"],
+  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","Deccember"],
   datasets: [
     {
-      data: [20, 45, 28, 80, 99, 43],
+      data: [20, 45, 28, 80, 99, 43,50,26,100,80,73,25],
     },
   ],
 };
+const screenWidth=Dimensions.get("window").width;
 
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
@@ -18,7 +19,7 @@ const chartConfig = {
   backgroundGradientTo: "#FFFFFF",
   backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(92, 153, 142, ${opacity})`,
-  strokeWidth: 2, // optional, default 3
+  strokeWidth: 3, // optional, default 3
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // optional
 };
@@ -70,7 +71,7 @@ const UsageBarChart = ({ category, year }) => {
     <BarChart
       //style={graphStyle}
       data={data}
-      width={200}
+      width={screenWidth}
       height={220}
       //yAxisLabel="$"
       chartConfig={chartConfig}

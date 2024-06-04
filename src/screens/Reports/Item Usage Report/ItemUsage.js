@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 import UsageBarChart from "./UsageBarChart";
+import StockLineChart from "./StockLineChart";
 
 const categoryList = [
   { value: "COMPUTER_ACCESSORIES", name: "Computer Accessories" },
@@ -100,6 +101,9 @@ export default UsageAnalysis = () => {
       </View>
       <View style={styles.view}>
         <UsageBarChart category={category} year={year}/>
+      </View>
+      <View style={styles.view}>
+        <StockLineChart category={category} year={year}/>
       </View>
     </SafeAreaView>
   );
