@@ -7,7 +7,7 @@ import UsageAnalysis from "./Reports/Item Usage Report/ItemUsage";
 export default function HomeScreen() {
   return (
     <SafeAreaProvider>
-      {/* <AdminDashboard /> */}
+      {/* <AdminDashboard navigation={navigation}/> */}
       <UsageAnalysis />
     </SafeAreaProvider>
   );
