@@ -95,7 +95,7 @@ export default UsageAnalysis = () => {
       </View>
       <View style={styles.view}>
         <Text style={styles.heading}>
-          USAGE ANALYSIS OF CATEGORY {category} YEAR {year} (JAN-DEC)
+          USAGE ANALYSIS OF CATEGORY {category} {'\n'} (JAN-DEC) {'\n'}  {year} 
         </Text>
       </View>
       <View style={styles.view}>

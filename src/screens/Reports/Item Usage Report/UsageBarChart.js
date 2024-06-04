@@ -64,6 +64,8 @@ const UsageBarChart = ({ category, year }) => {
 //       return acc;
 //     }, {});
 //   console.log(requestsByMonth);
+
+
   return (
     <BarChart
       //style={graphStyle}
