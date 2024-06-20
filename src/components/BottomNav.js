@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/Profile";
 import ItemList from "../screens/InventoryItem/ItemList";
+import InRequestList from "../screens/InventoryRequest/InRequestList"
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,11 @@ function AdminStack() {
         name="ItemList"
         component={ItemList}
         options={{ title: "All Items" }}
+      />
+     <Stack.Screen
+        name="InRequestList"
+        component={InRequestList}
+        options={{ title: "All InRequests" }}
       />
     </Stack.Navigator>
   );
