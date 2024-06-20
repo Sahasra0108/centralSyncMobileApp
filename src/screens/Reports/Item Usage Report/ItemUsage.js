@@ -11,9 +11,12 @@ import UsageBarChart from "./UsageBarChart";
 import StockLineChart from "./StockLineChart";
 
 const categoryList = [
+  { value: "COMPUTERS_AND_LAPTOPS", name: "ComputerS & Laptops" },
   { value: "COMPUTER_ACCESSORIES", name: "Computer Accessories" },
-  { value: "PRINTER", name: "Printer" },
   { value: "COMPUTER_HARDWARE", name: "Computer Hardware" },
+  { value: "PRINTERS_AND_SCANNERS", name: "PrinterS & Scanners" },
+  { value: "OFFICE_SUPPLIES", name: "Office Supplies" },
+  { value: "FURNITURE", name: "Furniture" },
   { value: "OTHER", name: "Other" },
 ];
 
@@ -26,7 +29,7 @@ const yearOptions = () => {
   return yearArray;
 };
 
-const renderButtonCategory = (selectedItem) => {
+const renderButtonForCategory = (selectedItem) => {
   return (
     <TouchableOpacity style={styles.customButton}>
       <Text style={styles.customButtonText}>
@@ -35,7 +38,7 @@ const renderButtonCategory = (selectedItem) => {
     </TouchableOpacity>
   );
 };
-const renderButtonYear = (selectedItem) => {
+const renderButtonForYear = (selectedItem) => {
   return (
     <TouchableOpacity style={styles.customButton}>
       <Text style={styles.customButtonText}>
@@ -45,10 +48,10 @@ const renderButtonYear = (selectedItem) => {
   );
 };
 
-const renderCategory = (item) => {
+const renderCategory = (category) => {
   return (
     <View style={styles.customItem}>
-      <Text style={styles.customItemText}>{item.name}</Text>
+      <Text style={styles.customItemText}>{category.name}</Text>
     </View>
   );
 };
@@ -61,7 +64,7 @@ const renderYear = (item) => {
 };
 
 export default UsageAnalysis = () => {
-  const [category, setCategory] = useState("COMPUTER_ACCESSORIES");
+  const [category, setCategory] = useState("COMPUTERS_AND_LAPTOPS");
   const [year, setYear] = useState(currentYear);
 
   useEffect(() => {
@@ -77,7 +80,7 @@ export default UsageAnalysis = () => {
           onSelect={(selectedItem) => {
             setCategory(selectedItem.value);
           }}
-          renderButton={renderButtonCategory}
+          renderButton={renderButtonForCategory}
           renderItem={renderCategory}
         />
         <SelectDropdown
@@ -85,7 +88,7 @@ export default UsageAnalysis = () => {
           onSelect={(selectedItem) => {
             setYear(selectedItem);
           }}
-          renderButton={renderButtonYear}
+          renderButton={renderButtonForYear}
           renderItem={renderYear}
         />
         {/* <TouchableOpacity style={styles.customButton}>
@@ -128,12 +131,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#007bff",
     borderRadius: 5,
     width: 160,
-    height: 60,
+    height: 50,
     margin: 5,
   },
   customButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 12,
   },
   heading: {
     fontSize: 16,

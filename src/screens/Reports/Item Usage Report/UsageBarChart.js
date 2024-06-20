@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Text,Dimensions } from "react-native";
+import { Text, Dimensions } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import axios from "axios";
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June","July","August","September","October","November","Deccember"],
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "Deccember",
+  ],
   datasets: [
     {
-      data: [20, 45, 28, 80, 99, 43,50,26,100,80,73,25],
+      data: [20, 45, 28, 80, 99, 43, 50, 26, 100, 80, 73, 25],
     },
   ],
 };
-const screenWidth=Dimensions.get("window").width;
+const screenWidth = Dimensions.get("window").width;
 
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
@@ -38,34 +51,33 @@ const UsageBarChart = ({ category, year }) => {
         setRequests(response.data);
       } catch (error) {
         console.log(error);
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [category, year]);
-
+  console.log(requests);
   if (loading) {
     return <Text>Loading...</Text>;
   }
 
-//   const requestsByMonth = requests
-//     .map((req) => ({
-//       date: req.date,
-//       status: req.reqStatus,
-//     }))
-//     .reduce((acc, rq) => {
-//       const date = new Date(rq.date);
-//       const month = date.toLocaleDateString("default", { month: "short" });
-//       acc[month] = acc[month] || [];
-//       if (rq.status === "accepted") {
-//         acc[month].push(rq);
-//       }
-//       return acc;
-//     }, {});
-//   console.log(requestsByMonth);
-
+  //   const requestsByMonth = requests
+  //     .map((req) => ({
+  //       date: req.date,
+  //       status: req.reqStatus,
+  //     }))
+  //     .reduce((acc, rq) => {
+  //       const date = new Date(rq.date);
+  //       const month = date.toLocaleDateString("default", { month: "short" });
+  //       acc[month] = acc[month] || [];
+  //       if (rq.status === "accepted") {
+  //         acc[month].push(rq);
+  //       }
+  //       return acc;
+  //     }, {});
+  //   console.log(requestsByMonth);
 
   return (
     <BarChart
