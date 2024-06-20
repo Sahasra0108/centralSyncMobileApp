@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/Profile";
 import ItemList from "../screens/InventoryItem/ItemList";
+import ItemUsage from "../screens/Reports/Item Usage Report/ItemUsage";
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -50,6 +51,11 @@ function AdminStack() {
         component={ItemList}
         options={{ title: "All Items" }}
       />
+      <Stack.Screen
+        name="ItemUsageAnalysis"
+        component={ItemUsage}
+        options={{ title: "Item Usage Analysis" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -58,7 +64,7 @@ function BottomNav() {
   return (
     <BottomTab.Navigator screenOptions={screenOptions}>
       <BottomTab.Screen
-        name="Home"
+        name="AdminHome"
         component={AdminStack}
         options={{
           tabBarLabel: "Home",
