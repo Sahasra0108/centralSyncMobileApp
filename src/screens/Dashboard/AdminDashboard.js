@@ -101,14 +101,15 @@ const AdminDashboard = () => {
           />
         </View>
         <View style={style.menuContainer}>
-          <Text style={style.menuHeding}>Inventory Item</Text>
+          <Text style={style.menuHeding}>Inventory</Text>
           <Button name="Item" onPress={() => navigation.navigate("ItemList")} />
-          <Button name="Adjustment" onPress={() => {}} />
+          <Button name="Adjustment"
+          onPress={() => navigation.navigate("AdjustmentList")}
+          />
           <Button name="Stock In" onPress={() => {}} />
           <Button name="Stock Out" onPress={() => {}} />
         </View>
 
-      </View>
 
       <View style={style.menuContainer}>
         <Text style={style.text}>Requests & Reservations</Text>
