@@ -8,7 +8,7 @@ import ProfileScreen from "../screens/Profile";
 import ItemList from "../screens/InventoryItem/ItemList";
 
 import InRequestList from "../screens/InventoryRequest/InRequestList"
-
+import AdjustmentList from "../screens/Adjustment/AdjustmentList";
 import ItemUsage from "../screens/Reports/Item Usage Report/ItemUsage";
 
 
@@ -61,10 +61,19 @@ function AdminStack() {
         component={InRequestList}
         options={{ title: "All InRequests" }}
 
-      <Stack.Screen
+      />
+
+     <Stack.Screen
         name="ItemUsageAnalysis"
         component={ItemUsage}
         options={{ title: "Item Usage Analysis" }}
+
+     />
+
+      <Stack.Screen
+        name="AdjustmentList"
+        component={AdjustmentList}
+        options={{ title: "All Adjustments" }}
 
       />
     </Stack.Navigator>
