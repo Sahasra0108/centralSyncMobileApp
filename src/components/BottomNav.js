@@ -11,7 +11,7 @@ import InRequestDocument from "../screens/InventoryRequest/InRequestDocument";
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
+//This is a comment
 const screenOptions = {
   tabBarShowLabel: false,
   headerShown: false,
