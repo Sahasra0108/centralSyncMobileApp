@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, SafeAreaView, Text, Image,ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  Image,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import Button from "../../components/Button";
 import ItemIcon from "../../../assets/items.png";
 import UsersIcon from "../../../assets/users.png";
@@ -43,31 +51,63 @@ const AdminDashboard = () => {
 
   return (
     <SafeAreaView style={style.safeArea}>
-     <ScrollView>
-      <View>
-        <Text>{today}</Text>
-      </View>
-      <View style={style.iconContainer}>
-        <View style={style.textContainer}>
-          <Image source={ItemIcon} style={style.image} />
-          <Text style={style.text}>{totItems}</Text>
-          <Text style={style.text}>All Items</Text>
+      <ScrollView>
+        <View>
+          <Text>{today}</Text>
         </View>
-        <View style={style.textContainer}>
-          <Image source={UsersIcon} style={style.image} />
-          <Text style={style.text}>{totUsers}</Text>
-          <Text style={style.text}>All Users</Text>
+        <View style={style.iconContainer}>
+          <View style={style.textContainer}>
+            <Image source={ItemIcon} style={style.image} />
+            <Text style={style.text}>{totItems}</Text>
+            <Text style={style.text}>All Items</Text>
+          </View>
+          <View style={style.textContainer}>
+            <Image source={UsersIcon} style={style.image} />
+            <Text style={style.text}>{totUsers}</Text>
+            <Text style={style.text}>All Users</Text>
+          </View>
+          <View style={style.textContainer}>
+            <Image source={StockInIcon} style={style.image} />
+            <Text style={style.text}>{totItems}</Text>
+            <Text style={style.text}>Stock in</Text>
+          </View>
+          <View style={style.textContainer}>
+            <Image source={StockOutIcon} style={style.image} />
+            <Text style={style.text}>{totItems}</Text>
+            <Text style={style.text}>Stock out</Text>
+          </View>
         </View>
-        <View style={style.textContainer}>
-          <Image source={StockInIcon} style={style.image} />
-          <Text style={style.text}>{totItems}</Text>
-          <Text style={style.text}>Stock in</Text>
+
+        <View style={style.menuContainer}>
+          <Text style={style.menuHeding}>Requests & Reservations</Text>
+          <Button name="Requests" onPress={() => {}} />
+          <Button name="External Reservations" onPress={() => {}} />
+          <Button name="My Reservations" onPress={() => {}} />
+          <Button name="Maintenance Ticket" onPress={() => {}} />
         </View>
-        <View style={style.textContainer}>
-          <Image source={StockOutIcon} style={style.image} />
-          <Text style={style.text}>{totItems}</Text>
-          <Text style={style.text}>Stock out</Text>
+        <View style={style.menuContainer}>
+          <Text style={style.menuHeding}>Reports</Text>
+          <Button
+            name="View History"
+            onPress={() => {
+              console.log("pressed");
+            }}
+          />
+          <Button name="Inventory Summary" onPress={() => {}} />
+          <Button name="Stock Alert" onPress={() => {}} />
+          <Button
+            name="Item Usage Analysis"
+            onPress={() => navigation.navigate("ItemUsageAnalysis")}
+          />
         </View>
+        <View style={style.menuContainer}>
+          <Text style={style.menuHeding}>Inventory Item</Text>
+          <Button name="Item" onPress={() => navigation.navigate("ItemList")} />
+          <Button name="Adjustment" onPress={() => {}} />
+          <Button name="Stock In" onPress={() => {}} />
+          <Button name="Stock Out" onPress={() => {}} />
+        </View>
+
       </View>
 
       <View style={style.menuContainer}>
@@ -96,45 +136,53 @@ const AdminDashboard = () => {
         <Button name="Stock In" onPress={() => {}} />
         <Button name="Stock Out" onPress={() => {}} />
       </View>
+
       </ScrollView>
     </SafeAreaView>
   );
 };
 
+const screenWidth = Dimensions.get("window").width;
+
 const style = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingHorizontal: 5,
   },
   iconContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10,
+    justifyContent: "space-evenly",
+    padding: 8,
     backgroundColor: "#3C8CEA",
     borderRadius: 15,
+    width: screenWidth - 10,
   },
   menuContainer: {
     alignItems: "center",
     backgroundColor: "#FFF2DC",
-    margin: 10,
+    marginVertical: 10,
     borderRadius: 15,
     elevation: 5,
-    width: 380,
-    height: 180,
+    width: screenWidth - 10,
+    height: 280,
   },
   textContainer: {
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 8,
   },
   image: {
     width: 50,
     height: 50,
     marginHorizontal: 22,
   },
-  text: {
+  text:{
+    fontSize:18
+  },
+  menuHeding: {
     fontWeight: "bold",
+    fontSize:20
   },
 });
 
