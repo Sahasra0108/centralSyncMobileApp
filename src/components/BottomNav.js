@@ -6,15 +6,17 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/Profile";
 import ItemList from "../screens/InventoryItem/ItemList";
-
+import InRequestList from "../screens/InventoryRequest/InRequestList";
+import InRequestDocument from "../screens/InventoryRequest/InRequestDocument";
 import InRequestList from "../screens/InventoryRequest/InRequestList"
 import AdjustmentList from "../screens/Adjustment/AdjustmentList";
 import ItemUsage from "../screens/Reports/Item Usage Report/ItemUsage";
 
 
+
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
+//This is a comment
 const screenOptions = {
   tabBarShowLabel: false,
   headerShown: false,
@@ -55,11 +57,17 @@ function AdminStack() {
         component={ItemList}
         options={{ title: "All Items" }}
       />
-
-     <Stack.Screen
+      <Stack.Screen
         name="InRequestList"
         component={InRequestList}
         options={{ title: "All InRequests" }}
+
+      />
+      <Stack.Screen
+        name="InRequestDocument"
+        component={InRequestDocument}
+        options={{ title: "Request Document" }}
+
 
       />
 
@@ -75,6 +83,7 @@ function AdminStack() {
         component={AdjustmentList}
         options={{ title: "All Adjustments" }}
 
+
       />
     </Stack.Navigator>
   );
@@ -84,7 +93,7 @@ function BottomNav() {
   return (
     <BottomTab.Navigator screenOptions={screenOptions}>
       <BottomTab.Screen
-        name="AdminHome"
+        name="Home"
         component={AdminStack}
         options={{
           tabBarLabel: "Home",

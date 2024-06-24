@@ -80,7 +80,7 @@ const AdminDashboard = () => {
 
         <View style={style.menuContainer}>
           <Text style={style.menuHeding}>Requests & Reservations</Text>
-          <Button name="Requests" onPress={() => {}} />
+          <Button name="Requests" onPress={() => navigation.navigate("InRequestList")} />
           <Button name="External Reservations" onPress={() => {}} />
           <Button name="My Reservations" onPress={() => {}} />
           <Button name="Maintenance Ticket" onPress={() => {}} />
@@ -111,6 +111,8 @@ const AdminDashboard = () => {
         </View>
 
 
+
+
       <View style={style.menuContainer}>
         <Text style={style.text}>Requests & Reservations</Text>
         <Button name="Requests" onPress={() => navigation.navigate("InRequestList")} />
@@ -137,6 +139,7 @@ const AdminDashboard = () => {
         <Button name="Stock In" onPress={() => {}} />
         <Button name="Stock Out" onPress={() => {}} />
       </View>
+
 
       </ScrollView>
     </SafeAreaView>
