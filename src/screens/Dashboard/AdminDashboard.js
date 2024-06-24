@@ -80,7 +80,7 @@ const AdminDashboard = () => {
 
         <View style={style.menuContainer}>
           <Text style={style.menuHeding}>Requests & Reservations</Text>
-          <Button name="Requests" onPress={() => {}} />
+          <Button name="Requests" onPress={() => navigation.navigate("InRequestList")} />
           <Button name="External Reservations" onPress={() => {}} />
           <Button name="My Reservations" onPress={() => {}} />
           <Button name="Maintenance Ticket" onPress={() => {}} />
@@ -107,35 +107,6 @@ const AdminDashboard = () => {
           <Button name="Stock In" onPress={() => {}} />
           <Button name="Stock Out" onPress={() => {}} />
         </View>
-
-      </View>
-
-      <View style={style.menuContainer}>
-        <Text style={style.text}>Requests & Reservations</Text>
-        <Button name="Requests" onPress={() => navigation.navigate("InRequestList")} />
-        <Button name="External Reservations" onPress={() => {}} />
-        <Button name="My Reservations" onPress={() => {}} />
-        <Button name="Maintenance Ticket" onPress={() => {}} />
-      </View>
-      <View style={style.menuContainer}>
-        <Text style={style.text}>Reports</Text>
-        <Button
-          name="View History"
-          onPress={() => {
-            console.log("pressed");
-          }}
-        />
-        <Button name="Inventory Summary" onPress={() => {}} />
-        <Button name="Stock Alert" onPress={() => {}} />
-        <Button name="Item Usage Analysis" onPress={() => {}} />
-      </View>
-      <View style={style.menuContainer}>
-        <Text style={style.text}>Inventory Item</Text>
-        <Button name="Item" onPress={() => navigation.navigate("ItemList")} />
-        <Button name="Adjustment" onPress={() => {}} />
-        <Button name="Stock In" onPress={() => {}} />
-        <Button name="Stock Out" onPress={() => {}} />
-      </View>
 
       </ScrollView>
     </SafeAreaView>
