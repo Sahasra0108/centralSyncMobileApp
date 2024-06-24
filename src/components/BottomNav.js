@@ -8,6 +8,11 @@ import ProfileScreen from "../screens/Profile";
 import ItemList from "../screens/InventoryItem/ItemList";
 import InRequestList from "../screens/InventoryRequest/InRequestList";
 import InRequestDocument from "../screens/InventoryRequest/InRequestDocument";
+import InRequestList from "../screens/InventoryRequest/InRequestList"
+import AdjustmentList from "../screens/Adjustment/AdjustmentList";
+import ItemUsage from "../screens/Reports/Item Usage Report/ItemUsage";
+
+
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -56,11 +61,29 @@ function AdminStack() {
         name="InRequestList"
         component={InRequestList}
         options={{ title: "All InRequests" }}
+
       />
       <Stack.Screen
         name="InRequestDocument"
         component={InRequestDocument}
         options={{ title: "Request Document" }}
+
+
+      />
+
+     <Stack.Screen
+        name="ItemUsageAnalysis"
+        component={ItemUsage}
+        options={{ title: "Item Usage Analysis" }}
+
+     />
+
+      <Stack.Screen
+        name="AdjustmentList"
+        component={AdjustmentList}
+        options={{ title: "All Adjustments" }}
+
+
       />
     </Stack.Navigator>
   );
