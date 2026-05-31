@@ -4,7 +4,7 @@ A React Native mobile application for managing internal company resources — in
 
 > Built for **Rootcode Labs** as part of the CentralSync Internal Resources Management System.
 
-<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/ad0bd322-1172-44f9-af49-5815380d7466" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ad0bd322-1172-44f9-af49-5815380d7466" />
 
 ---
 
